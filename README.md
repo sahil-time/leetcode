@@ -1,1 +1,3 @@
-# leetcode
+- Most Common LC Questions
+- In C, C++ and Python3
+- Rust upcoming
