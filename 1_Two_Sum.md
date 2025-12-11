@@ -1,5 +1,5 @@
 # C
-```
+```c
 struct hashTable {
     int key;
     int value;
@@ -16,7 +16,7 @@ int* two_sum (int* nums, int numSize, int target, int* returnSize) {
 
 # Python3
 
-```
+```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         hmap = collections.defaultdict(int)
