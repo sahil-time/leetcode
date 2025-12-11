@@ -47,7 +47,9 @@ public:
 };
 ```
 
-# TIME & SPACE
+# Time & Space
+```
 - N = Length of the array
 - Time = O(N)
 - Space = O(N)
+```
