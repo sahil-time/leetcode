@@ -15,7 +15,6 @@ int* two_sum (int* nums, int numSize, int target, int* returnSize) {
 ```
 
 # Python3
-
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -26,3 +25,29 @@ class Solution:
                 return [hmap[complement], i]
             hmap[num] = i
 ```
+
+# C++
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        std::unordered_map<int, int> hmap;
+        std::vector<int> res(2);
+        for (int i = 0; i < nums.size(); i++) {
+            int complement = target - nums[i];
+            if (hmap.contains(complement)) {
+                res[0] = hmap[complement];
+                res[1] = i;
+                return res;
+            }
+            hmap[nums[i]] = i;
+        }
+        return res;
+    }
+};
+```
+
+# TIME & SPACE
+- N = Length of the array
+- Time = O(N)
+- Space = O(N)
