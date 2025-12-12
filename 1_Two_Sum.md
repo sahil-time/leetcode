@@ -14,6 +14,8 @@ int* two_sum (int* nums, int numSize, int target, int* returnSize) {
 }
 ```
 
+TEST
+
 # Python3
 ```python
 class Solution:
@@ -38,7 +40,7 @@ public:
             if (hmap.contains(complement)) {
                 res[0] = hmap[complement];
                 res[1] = i;
-                return res;
+                return res; // Return Value Optimization [ Zero Copy ]
             }
             hmap[nums[i]] = i;
         }
