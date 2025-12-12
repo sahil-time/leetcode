@@ -9,13 +9,20 @@ public:
         }
         std::deque<TreeNode*> q;
         q.push_back(root);
+
         while (!q.empty()) {
             std::vector<int> vals;
-            int size = q.size();
+            int size = q.size(); // Cannot do 'q.size()' in the loop since it changes for each iteration
+
             for (int i = 0; i < size; i++) {
+                // Pop out the left most node
                 TreeNode* node = q.front();
                 q.pop_front();
+
+                // Add the val
                 vals.push_back(node->val);
+
+                // Add if any children from Left to Right
                 if (node->left != nullptr) {
                     q.push_back(node->left);
                 }
@@ -25,6 +32,7 @@ public:
             }
             res.push_back(vals);
         }
+
         return res;
     }
 };
