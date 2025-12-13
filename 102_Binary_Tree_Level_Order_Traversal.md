@@ -62,3 +62,8 @@ class Solution:
 - Time = O(N) because we will traverse all N nodes
 - Space = O(N) because if it is a Perfect Binary Tree, there are N/2 leaves
 ```
+
+# Notes
+- `deque` is the best data-structure to add and delete elements at the edges
+- Very useful for BST problems
+- Available in both C++ and Python3
