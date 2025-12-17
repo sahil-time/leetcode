@@ -35,6 +35,7 @@ struct Node* copyRandomList(struct Node* head) {
             cur->next->next = next->next;
             cur->next = next;
         }
+        cur->next = next;
         cur = next;
     }
     return res;
@@ -45,10 +46,76 @@ struct Node* copyRandomList(struct Node* head) {
 ```cpp
 class Solution {
 private:
+    Node* copyRandomList1(Node* head) {
+        if (head == nullptr) {
+            return nullptr;
+        }
+
+        // In-Place modify the linked list
+        Node* cur = head;
+        while (cur != nullptr) {
+            Node* next = cur->next;
+            cur->next = new Node(cur->val);
+            cur->next->next = next;
+            cur = next;
+        }
+
+        // Connect Random Pointers
+        cur = head;
+        while (cur != nullptr) {
+            if (cur->random != nullptr) {
+                cur->next->random = cur->random->next;
+            } else {
+                cur->next->random = nullptr;
+            }
+            cur = cur->next->next;
+        }
+
+        // Extract the list
+        cur = head;
+        Node* res = cur->next;
+        while (cur != nullptr) {
+            Node* next = cur->next->next;
+            if (next != nullptr) {
+                cur->next->next = next->next;
+                cur->next = next;
+            }
+            cur->next = next;
+            cur = next;
+        }
+        return res;
+    }
+
+    Node* copyRandomList2(Node* head) {
+        if (head == nullptr) {
+            return nullptr;
+        }
+
+        std::unordered_map<Node*, Node*> old_new_map;
+        old_new_map[nullptr] = nullptr;
+
+        // Create new nodes
+        Node* cur = head;
+        while (cur != nullptr) {
+            old_new_map[cur] = new Node(cur->val);
+            cur = cur->next;
+        }
+
+        // Connect the random and next pointers of the new nodes
+        cur = head;
+        while (cur != nullptr) {
+            old_new_map[cur]->next = old_new_map[cur->next];
+            old_new_map[cur]->random = old_new_map[cur->random];
+            cur = cur->next;
+        }
+
+        return old_new_map[head];
+    }
 
 public:
     Node* copyRandomList(Node* head) {
-
+        // return copyRandomList1(head);
+        return copyRandomList2(head);
     }
 };
 ```
