@@ -20,6 +20,7 @@ struct TreeNode* lowestCommonAncestorHelper(struct TreeNode* node, struct TreeNo
     if (right != NULL) {
         return right;
     }
+
     return NULL;
 }
 
@@ -52,6 +53,7 @@ private:
         if (right != nullptr) {
             return right;
         }
+
         return nullptr;
     }
 
@@ -80,6 +82,7 @@ class Solution:
             return l
         if r:
             return r
+
         return None
 
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':

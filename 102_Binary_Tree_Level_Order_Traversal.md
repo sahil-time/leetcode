@@ -45,6 +45,7 @@ class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         res = []
         q = deque([root]) if root else None
+
         while q:
             vals = []
             for i in range(len(q)):
@@ -53,6 +54,7 @@ class Solution:
                 q.append(node.left) if node.left else None
                 q.append(node.right) if node.right else None
             res.append(vals)
+
         return res
 ```
 

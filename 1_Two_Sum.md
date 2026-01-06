@@ -45,6 +45,7 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
         std::unordered_map<int, int> hmap;
         std::vector<int> res(2);
+
         for (int i = 0; i < nums.size(); i++) {
             int complement = target - nums[i];
             if (hmap.contains(complement)) {
@@ -54,6 +55,7 @@ public:
             }
             hmap[nums[i]] = i;
         }
+
         return res;
     }
 };

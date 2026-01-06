@@ -155,14 +155,17 @@ class Solution:
     def _copyRandomList2(self, head):
         old_new_map = {None: None}
         cur = head
+
         while cur:
             old_new_map[cur] = Node(cur.val)
             cur = cur.next
+
         cur = head
         while cur:
             old_new_map[cur].next = old_new_map[cur.next]
             old_new_map[cur].random = old_new_map[cur.random]
             cur = cur.next
+
         return old_new_map[head]
 
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
